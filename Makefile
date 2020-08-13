@@ -1,9 +1,8 @@
 #######################################################################
-# Makefile for STM32H743ZI projects
+# Makefile for STM32H743ZI Nucleo projects
 
 PROJECT = main
 CUBE_PATH ?= STM32CubeH7
-OPENOCD_SCRIPT_DIR ?= /usr/share/openocd/scripts
 HEAP_SIZE = 0x100
 FLASH_OFFSET=0x08000000
 
@@ -51,13 +50,12 @@ READELF = $(PREFIX)-readelf
 SIZE = $(PREFIX)-size
 GDB = $(PREFIX)-gdb
 RM = rm -f
-OPENOCD=openocd
 
 ################
 # Compiler options
 
 MCUFLAGS = -mcpu=cortex-m7 -mlittle-endian
-MCUFLAGS += -mfloat-abi=hard
+MCUFLAGS += -mfloat-abi=hard -mfpu=fpv5-d16
 MCUFLAGS += -mthumb
 
 DEBUG_OPTIMIZE_FLAGS = -O0 -g -ggdb3
